@@ -1,6 +1,7 @@
-import { HighlightStyle, tags } from '@codemirror/highlight';
+import { HighlightStyle, syntaxHighlighting } from '@codemirror/language';
 import { Extension } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
+import { tags } from '@lezer/highlight';
 
 // Using https://github.com/PrismJS/prism-themes/blob/master/themes/prism-vsc-dark-plus.css as reference for the colors
 
@@ -200,5 +201,5 @@ export const vsCodeDarkPlusHighlightStyle = HighlightStyle.define([
 /// the highlight style).
 export const vsCodeDarkPlus: Extension = [
   vsCodeDarkPlusTheme,
-  vsCodeDarkPlusHighlightStyle,
+  syntaxHighlighting(vsCodeDarkPlusHighlightStyle),
 ];
